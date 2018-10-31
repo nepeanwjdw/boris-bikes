@@ -1,18 +1,15 @@
-# BorisBikes
+# Boris Bikes
 
-##BorisBikes
-
-This project is a program that emulates the docking system, bikes, infrastructure required to deliver a new bike system.
+This project is a program that emulates the docking station/bikes infrastructure required to deliver a 'Boris Bikes' like system.
 
 ## Getting started
 
-`git clone git@github.com:SBriscoe2/BorisBikes.git`
+`git clone git@github.com:alittlecross/boris-bikes.git`
 
 ## Usage
 
-`command_to_start`
-
+Not yet defined.
 
 ## Running tests
 
-`test_command` (`rspec`)
+`rspec`
