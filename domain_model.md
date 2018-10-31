@@ -8,8 +8,9 @@ So that I can use a good bike,
 I'd like to see if a bike is working
 ```
 
+
 Object | Message
 ----------- | -----------
 Person |
-Bike | check_status
-Docking Station | release_bike
+Bike | working?
+DockingStation | release_bike
