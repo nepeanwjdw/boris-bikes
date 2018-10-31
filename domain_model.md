@@ -1,3 +1,5 @@
+User stories
+
 ```
 As a person,
 So that I can use a bike,
@@ -8,8 +10,9 @@ So that I can use a good bike,
 I'd like to see if a bike is working
 ```
 
+Functional representations
 
-Object | Message
+Object | Messages
 ----------- | -----------
 Person |
 Bike | working?
