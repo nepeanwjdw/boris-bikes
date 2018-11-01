@@ -16,7 +16,7 @@ describe DockingStation do
     expect{ subject.release_bike }.to raise_error "No bikes available"
   end
   it "expects trying to dock a bike to return an error, when 20 are already docked" do
-    20.times { subject.dock(Bike.new) }
+    DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
     expect{ subject.dock(Bike.new) }.to raise_error "There's already 20 bikes here"
   end
 end
