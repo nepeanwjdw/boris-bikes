@@ -4,11 +4,11 @@ describe DockingStation do
   it { is_expected.to respond_to(:release_bike) }
 
   it "allows a bike to be docked" do
-    bike = Bike.new
+    bike = double(:bike)
     expect(subject.dock(bike)).to include bike
   end
   it "get the bike from the docking station" do
-    bike = Bike.new
+    bike = double(:bike)
     subject.dock(bike)
     expect(subject.release_bike).to eq bike
   end
@@ -16,8 +16,8 @@ describe DockingStation do
     expect{ subject.release_bike }.to raise_error "No bikes available"
   end
   it "expects trying to dock a bike to return an error, when 20 are already docked" do
-    DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
-    expect{ subject.dock(Bike.new) }.to raise_error "There's already 20 bikes here"
+    DockingStation::DEFAULT_CAPACITY.times { subject.dock(double(:bike)) }
+    expect{ subject.dock(double(:bike)) }.to raise_error "There's already 20 bikes here"
   end
 
   it 'accepts and argument which allows you to set a bespoke capacity' do
@@ -32,22 +32,18 @@ describe DockingStation do
   end
 
   it 'should allow a bike to report to be broken when docked' do
-    bike = Bike.new
+    bike = double(:bike)
     docking_station = DockingStation.new
     expect{ docking_station.dock(bike, true) }.to_not raise_error
   end
 
   it 'should not allow a bike to be released if broken' do
     docking_station = DockingStation.new
-    docking_station.dock(Bike.new, true)
+    docking_station.dock(double(:bike), true)
     expect(docking_station.release_bike).to eq "This bike is broken"
   end
 
 end
-
-ds = DockingStation.new(10)
-
-puts ds.capacity
 
 describe Bike do
   it "is it working?" do
