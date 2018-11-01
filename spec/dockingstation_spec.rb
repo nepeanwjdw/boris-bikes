@@ -19,7 +19,23 @@ describe DockingStation do
     DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
     expect{ subject.dock(Bike.new) }.to raise_error "There's already 20 bikes here"
   end
+
+  it 'accepts and argument which allows you to set a bespoke capacity' do
+    bespoke_capacity = 10
+    docking_station = DockingStation.new(bespoke_capacity)
+    expect(docking_station.capacity).to eq(bespoke_capacity)
+  end
+
+  it 'should revert to DEFAULT_CAPACITY if no bespoke capacity is given' do
+    docking_station = DockingStation.new
+    expect(docking_station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
+
 end
+
+ds = DockingStation.new(10)
+
+puts ds.capacity
 
 describe Bike do
   it "is it working?" do
