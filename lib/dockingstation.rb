@@ -10,10 +10,12 @@ class DockingStation
 
   def release_bike
     fail "No bikes available" if empty?
+    return "This bike is broken" if @bikes.first.broken
     @bikes.first
   end
 
-  def dock(bike)
+  def dock(bike, broken=false)
+    bike.broken = broken
     fail "There's already 20 bikes here" if full?
     @bikes << bike
   end
@@ -29,6 +31,8 @@ class DockingStation
 end
 
 class Bike
+  attr_accessor :broken
+
   def working?
     true
   end
