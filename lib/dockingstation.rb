@@ -10,7 +10,7 @@ class DockingStation
 
   def release_bike
     fail "No bikes available" if empty?
-    return "This bike is broken" if @bikes.first.broken
+    return "This bike is broken" if @bikes.first.broken?
     @bikes.first
   end
 
@@ -35,6 +35,10 @@ class Bike
 
   def initialize
     @broken = false
+  end
+
+  def broken?
+    @broken
   end
 
   def working?
