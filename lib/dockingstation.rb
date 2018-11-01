@@ -1,12 +1,18 @@
 class DockingStation
-  attr_reader :bike
-  def release_bike
-    fail "No bikes available" unless @bike
-    @bike
+  attr_reader :bikes
+
+  def initialize
+    @bikes = []
   end
+
+  def release_bike
+    fail "No bikes available" if (@bikes.empty?)
+    @bikes.first
+  end
+
   def dock(bike)
-    fail "There's already a bike here" if @bike
-    @bike = bike
+    fail "There's already 20 bikes here" if (@bikes.count == 20)
+    @bikes << bike
   end
 end
 
